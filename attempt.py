@@ -3,14 +3,14 @@ from dotenv import load_dotenv
 import os
 import openai
 
-# Load API key from .env
+
 load_dotenv()
 key = os.getenv("OPENAI_API_KEY")
 
-# Create OpenAI client
+
 client = openai.OpenAI(api_key=key)
 
-# Function for button click
+
 def get_completion():
     prompt = entry.get()
     response = client.chat.completions.create(
@@ -20,7 +20,7 @@ def get_completion():
     output_box.delete("1.0", tk.END)
     output_box.insert(tk.END, response.choices[0].message.content)
 
-# GUI setup
+
 root = tk.Tk()
 root.title("AI Completion GUI")
 
